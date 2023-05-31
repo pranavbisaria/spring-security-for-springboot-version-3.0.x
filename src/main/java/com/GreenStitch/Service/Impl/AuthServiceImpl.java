@@ -85,7 +85,6 @@ public class AuthServiceImpl implements AuthService {
         userDto.setFirstname(userDto.getFirstname().trim());
         userDto.setLastname(userDto.getLastname().trim());
         String email = userDto.getEmail().trim().toLowerCase();
-        Role newRole = this.roleRepo.findById(AppConstants.ROLE_NORMAL).orElse(null);
         if (this.emailExists(email)) {
             return new ResponseEntity<>(new ApiResponse("Invalid Action", false), HttpStatus.SERVICE_UNAVAILABLE);
         }
@@ -96,18 +95,19 @@ public class AuthServiceImpl implements AuthService {
             if (storedOtpDto.getOne_time_password() == userDto.getOne_time_password()) {
                 this.userCache.clearCache(email);
                 User user;
-                    user = new User();
-                    user.setEmail(email);
-                    user.setFirstname(userDto.getFirstname());
-                    user.setLastname(userDto.getLastname());
-                    if ((userDto.getGender().equals("f"))) {
-                        user.setProfilePhoto(AppConstants.femalePhoto);
-                        user.setGender("female");
-                    } else {
-                        user.setProfilePhoto(AppConstants.malePhoto);
-                        user.setGender("male")  ;
-                    }
-                user.getRoles().add(newRole);
+                user = new User();
+                user.setEmail(email);
+                user.setFirstname(userDto.getFirstname());
+                user.setLastname(userDto.getLastname());
+                if ((userDto.getGender().equals("f"))) {
+                    user.setProfilePhoto(AppConstants.femalePhoto);
+                    user.setGender("female");
+                } else {
+                    user.setProfilePhoto(AppConstants.malePhoto);
+                    user.setGender("male")  ;
+                }
+                Role role = this.roleRepo.findById(AppConstants.ROLE_NORMAL).orElse(null);
+                user.getRoles().add(role);
                 user.setPassword(this.passwordEncoder.encode(userDto.getPassword()));
                 this.userRepo.save(user);
                 this.otpService.SuccessRequest(user.getEmail(), user.getFirstname());

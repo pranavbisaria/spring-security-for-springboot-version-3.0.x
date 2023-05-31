@@ -37,7 +37,7 @@ public class User implements UserDetails {
     @Column(length = 1000)
     private String profilePhoto;
     private Boolean active = true;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user", referencedColumnName = "id"), inverseJoinColumns =  @JoinColumn(name = "role", referencedColumnName = "id"))
     private Set<Role> roles = new HashSet<>(0);
 

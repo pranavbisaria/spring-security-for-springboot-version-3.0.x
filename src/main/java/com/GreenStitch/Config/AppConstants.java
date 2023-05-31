@@ -3,7 +3,7 @@ package com.GreenStitch.Config;
 public class AppConstants {
     public static final Integer ROLE_ADMIN = 1001;
     public static final Integer ROLE_NORMAL = 1002;
-    public static final int ROLE_OTHER = 1003;
+    public static final Integer ROLE_OTHER = 1003;
     public static final long JWT_ACCESS_TOKEN_VALIDITY = 24 * 60 *60; //30 sec
     public static final long JWT_REFRESH_TOKEN_VALIDITY = 100 * 24 * 60 *60; //2 min
     public static final Integer EXPIRE_MINs = 10;
