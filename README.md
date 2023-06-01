@@ -123,6 +123,10 @@ https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
    ```sh
    http://localhost:8080/swagger-ui/index.html
    ```
+   Get the postman collection at the following link
+   ```sh
+   https://crimson-flare-571775.postman.co/workspace/Green-Stitch~dcfa712e-5f25-40e2-aedf-60b0e52bcca6/collection/24017701-6dfd191f-0f0c-46c0-a63c-d71dde765b9e?action=share&creator=24017701
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
