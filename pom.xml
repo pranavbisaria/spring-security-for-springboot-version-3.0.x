@@ -8,11 +8,11 @@
 		<version>3.0.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.GreenStitch</groupId>
-	<artifactId>Internship-Task</artifactId>
+	<groupId>com.security</groupId>
+	<artifactId>security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Internship-Task</name>
-	<description>This is my internship task for the backend internship in springboot at GreenStitch</description>
+	<name>Spring Security</name>
+	<description>This is an example to implement spring security in springboot version 3.0</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
